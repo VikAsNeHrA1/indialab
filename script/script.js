@@ -43,7 +43,7 @@ function validateForm() {
 }
 
 function loadProfile() {
-  $.getJSON("data.json", function (data) {
+  $.getJSON("assets/data.json", function (data) {
     $("#name").val(data.name);
     $("#email").val(data.email);
     $("#phone").val(data.phone);
