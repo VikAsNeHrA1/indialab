@@ -1,54 +1,90 @@
-$(document).ready(function () {
-  $("#myForm").submit(function (event) {
-    event.preventDefault();
-    if (validateForm()) {
-      const name = $("#name").val();
-      const email = $("#email").val();
-      const phone = $("#phone").val();
-      const message = $("#message").val();
-
-      // Display the submitted data
-      $("#displayName").text(name);
-      $("#displayEmail").text(email);
-      $("#displayPhone").text(phone);
-      $("#displayMessage").text(message);
-      $("#displayData").show();
-    }
-  });
-});
-
-$("#loadProfileButton").click(function () {
-  loadProfile();
-});
-
-function validateForm() {
-  const name = $("#name").val();
-  const email = $("#email").val();
-  const phone = $("#phone").val();
-  const message = $("#message").val();
-
-  if (name === "" || email === "" || phone === "") {
-    alert("Please fill in all required fields.");
-    return false;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
   }
-
-  // Validate phone number
-  const phoneRegex = /^[0-9]{10}$/;
-  if (!phoneRegex.test(phone)) {
-    alert("Please enter a valid 10-digit phone number.");
-    return false;
+  
+  h1 {
+    font-size: 36px;
+    margin-top: 0;
   }
-
-  return true;
-}
-
-function loadProfile() {
-  $.getJSON("profile.json", function (data) {
-    $("#name").val(data.name);
-    $("#email").val(data.email);
-    $("#phone").val(data.phone);
-    $("#message").val(data.message);
-  }).fail(function () {
-    alert("Failed to load profile data.");
-  });
-}
+  
+  form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  form input,
+  form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+  
+  form input:focus,
+  form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 4px #0077ff;
+  }
+  
+  form button[type="submit"] {
+    background-color: #0077ff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  form button[type="submit"]:hover {
+    background-color: #0055cc;
+  }
+  
+  #loadProfileButton {
+    background-color: #4caf50; /* Set background color */
+    border: none; /* Remove button border */
+    color: white; /* Set text color */
+    padding: 10px 20px; /* Add padding */
+    text-align: center; /* Center align text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display as inline-block */
+    font-size: 16px; /* Set font size */
+    margin: 4px 2px; /* Add margin */
+    cursor: pointer; /* Add pointer cursor */
+  }
+  
+  #displayData {
+    margin-top: 50px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: none;
+  }
+  
+  #displayData h2 {
+    margin-top: 0;
+  }
+  
+  #displayData p {
+    margin: 10px 0;
+  }
+  
+  #displayData strong {
+    font-weight: bold;
+  }
+  
+  footer {
+    background-color: #eee;
+    padding: 20px;
+    text-align: center;
+  }
+  
