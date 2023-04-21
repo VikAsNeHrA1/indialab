@@ -1,16 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
-  margin: 0;
-  padding: 0;
-}
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -77,4 +68,32 @@ form button[type="submit"]:hover {
 
 #displayData strong {
   font-weight: bold;
+}
+
+/* Footer section styling */
+
+footer {
+  
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 0;
+  background-color: black;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
 }
